@@ -37,8 +37,9 @@ class InvertedResidual(nn.Module):
             nn.ReLU(inplace=True),
 
             # dw
-            nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, (kernel_size - 1) // 2, groups=hidden_dim,
-                      bias=False),
+           # nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, (kernel_size - 1) // 2, groups=hidden_dim,
+           #           bias=False),
+            nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, (kernel_size - 1) // 2, bias=False),
             nn.BatchNorm2d(hidden_dim),
             attention.se_block(hidden_dim),
 
